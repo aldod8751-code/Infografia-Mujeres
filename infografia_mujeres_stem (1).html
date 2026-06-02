@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mujeres en STEM — Infografía</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --magenta:  #C2185B;
+    --rose:     #E91E8C;
+    --blush:    #F48FB1;
+    --cream:    #FFF8F0;
+    --ink:      #1A0A14;
+    --mid:      #5C2D4A;
+    --teal:     #00897B;
+    --gold:     #F9A825;
+    --lavender: #7B1FA2;
+    --sky:      #0288D1;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); font-family:'DM Sans',sans-serif; color:var(--ink); width:900px; margin:0 auto; }
+
+  /* HERO */
+  .hero { background:linear-gradient(135deg,#1A0A14 0%,#4A0E2E 50%,#7B1FA2 100%); padding:60px 60px 50px; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 20%,rgba(233,30,140,.25) 0%,transparent 60%),radial-gradient(ellipse at 10% 90%,rgba(0,137,123,.15) 0%,transparent 50%); }
+  .hero-tag { display:inline-block; background:var(--rose); color:#fff; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; padding:6px 16px; border-radius:20px; margin-bottom:22px; position:relative; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:54px; font-weight:900; line-height:1.05; color:#fff; position:relative; max-width:580px; }
+  .hero h1 em { font-style:normal; color:var(--blush); }
+  .hero-sub { color:rgba(255,255,255,.72); font-size:14.5px; font-weight:300; line-height:1.7; max-width:540px; margin-top:20px; position:relative; }
+  .hero-deco { position:absolute; right:55px; top:45px; }
+  .hero-deco-circle { width:170px; height:170px; border-radius:50%; border:2px solid rgba(233,30,140,.4); display:flex; align-items:center; justify-content:center; position:relative; }
+  .hero-deco-circle::after { content:''; position:absolute; inset:10px; border-radius:50%; background:radial-gradient(circle,rgba(233,30,140,.2),transparent); }
+  .hero-big-num { font-family:'Playfair Display',serif; font-size:60px; font-weight:900; color:var(--rose); line-height:1; }
+  .hero-big-label { font-size:10px; color:rgba(255,255,255,.6); text-align:center; letter-spacing:1px; margin-top:4px; text-transform:uppercase; max-width:110px; }
+
+  /* INTRO BAND */
+  .intro-band { background:var(--magenta); padding:26px 60px; display:flex; align-items:center; gap:20px; }
+  .intro-icon { font-size:34px; flex-shrink:0; }
+  .intro-text { color:#fff; font-size:13.5px; line-height:1.7; }
+  .intro-text strong { font-weight:700; }
+
+  /* SECTION */
+  .section { padding:46px 60px 0; }
+  .section-title { font-family:'Playfair Display',serif; font-size:25px; color:var(--magenta); margin-bottom:26px; display:flex; align-items:center; gap:12px; }
+  .section-title::after { content:''; flex:1; height:2px; background:linear-gradient(to right,var(--blush),transparent); }
+
+  /* STATS */
+  .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .stat-card { background:#fff; border-radius:14px; padding:24px 20px; border-top:4px solid var(--magenta); box-shadow:0 4px 22px rgba(194,24,91,.08); }
+  .stat-card:nth-child(2){border-top-color:var(--teal)}
+  .stat-card:nth-child(3){border-top-color:var(--lavender)}
+  .stat-card:nth-child(4){border-top-color:var(--gold)}
+  .stat-card:nth-child(5){border-top-color:var(--sky)}
+  .stat-card:nth-child(6){border-top-color:var(--rose)}
+  .stat-number { font-family:'Playfair Display',serif; font-size:44px; font-weight:900; line-height:1; color:var(--magenta); }
+  .stat-card:nth-child(2) .stat-number{color:var(--teal)}
+  .stat-card:nth-child(3) .stat-number{color:var(--lavender)}
+  .stat-card:nth-child(4) .stat-number{color:var(--gold)}
+  .stat-card:nth-child(5) .stat-number{color:var(--sky)}
+  .stat-card:nth-child(6) .stat-number{color:var(--rose)}
+  .stat-desc { font-size:12.5px; line-height:1.55; color:var(--mid); margin-top:9px; }
+  .stat-source { font-size:10px; color:#bbb; margin-top:8px; font-style:italic; }
+  .stat-icon { font-size:20px; margin-bottom:7px; }
+
+  /* CHARTS */
+  .chart-section { padding:40px 60px 0; display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .chart-card { background:#fff; border-radius:14px; padding:26px 24px; box-shadow:0 4px 22px rgba(0,0,0,.06); }
+  .chart-title { font-weight:700; font-size:13.5px; color:var(--ink); margin-bottom:18px; line-height:1.4; }
+  .bar-row { display:flex; align-items:center; gap:9px; margin-bottom:12px; }
+  .bar-label { font-size:11.5px; color:var(--mid); width:108px; flex-shrink:0; line-height:1.3; }
+  .bar-track { flex:1; background:#F3E5F5; border-radius:5px; height:13px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:5px; background:linear-gradient(to right,var(--magenta),var(--rose)); }
+  .bar-fill.t { background:linear-gradient(to right,var(--teal),#4DB6AC); }
+  .bar-fill.l { background:linear-gradient(to right,var(--lavender),#AB47BC); }
+  .bar-pct { font-size:11.5px; font-weight:700; color:var(--ink); width:36px; text-align:right; flex-shrink:0; }
+  .donut-wrap { display:flex; align-items:center; gap:22px; margin-top:6px; }
+  .donut-legend { display:flex; flex-direction:column; gap:10px; }
+  .legend-item { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--mid); }
+  .legend-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+
+  /* MESSAGE */
+  .message-band { margin:40px 60px 0; background:linear-gradient(135deg,#1A0A14,#4A0E2E); border-radius:18px; padding:36px 40px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:26px; position:relative; overflow:hidden; }
+  .message-band::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(233,30,140,.2),transparent 70%); }
+  .msg-item { position:relative; }
+  .msg-icon { font-size:28px; margin-bottom:11px; }
+  .msg-heading { font-family:'Playfair Display',serif; font-size:15px; color:var(--blush); margin-bottom:8px; }
+  .msg-body { font-size:12px; color:rgba(255,255,255,.72); line-height:1.65; }
+
+  /* TIMELINE */
+  .timeline { padding:40px 60px 0; }
+  .tl-list { display:flex; position:relative; }
+  .tl-list::before { content:''; position:absolute; top:21px; left:22px; right:22px; height:3px; background:linear-gradient(to right,var(--magenta),var(--rose),var(--lavender),var(--teal)); z-index:0; }
+  .tl-item { flex:1; text-align:center; position:relative; z-index:1; padding:0 6px; }
+  .tl-dot { width:42px; height:42px; border-radius:50%; background:var(--magenta); display:flex; align-items:center; justify-content:center; font-size:17px; margin:0 auto 13px; border:3px solid var(--cream); box-shadow:0 0 0 2px var(--magenta); }
+  .tl-item:nth-child(2) .tl-dot{background:var(--rose);box-shadow:0 0 0 2px var(--rose)}
+  .tl-item:nth-child(3) .tl-dot{background:var(--lavender);box-shadow:0 0 0 2px var(--lavender)}
+  .tl-item:nth-child(4) .tl-dot{background:var(--teal);box-shadow:0 0 0 2px var(--teal)}
+  .tl-year { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--magenta); }
+  .tl-item:nth-child(2) .tl-year{color:var(--rose)}
+  .tl-item:nth-child(3) .tl-year{color:var(--lavender)}
+  .tl-item:nth-child(4) .tl-year{color:var(--teal)}
+  .tl-desc { font-size:11px; color:var(--mid); margin-top:5px; line-height:1.5; }
+
+  /* SOURCES */
+  .sources { margin:38px 60px 0; background:#fff; border-radius:13px; padding:22px 28px; border-left:5px solid var(--magenta); }
+  .sources-title { font-weight:700; font-size:12px; color:var(--magenta); margin-bottom:10px; text-transform:uppercase; letter-spacing:1px; }
+  .sources-list { display:flex; flex-direction:column; gap:5px; }
+  .sources-list li { font-size:11px; color:#999; list-style:none; display:flex; gap:6px; line-height:1.5; }
+  .sources-list li::before { content:'◆'; color:var(--blush); font-size:8px; margin-top:3px; flex-shrink:0; }
+
+  /* FOOTER */
+  .footer { margin-top:40px; background:var(--ink); padding:20px 60px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-brand { font-family:'Playfair Display',serif; font-size:14px; color:var(--blush); letter-spacing:1px; }
+  .footer-note { font-size:10.5px; color:rgba(255,255,255,.4); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  .stat-card{animation:fadeUp .5s ease both}
+  .stat-card:nth-child(1){animation-delay:.05s}.stat-card:nth-child(2){animation-delay:.10s}
+  .stat-card:nth-child(3){animation-delay:.15s}.stat-card:nth-child(4){animation-delay:.20s}
+  .stat-card:nth-child(5){animation-delay:.25s}.stat-card:nth-child(6){animation-delay:.30s}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Infografía · 2026</div>
+  <h1>Mujeres en <em>STEM:</em><br>Brechas que aún<br>debemos cerrar</h1>
+  <p class="hero-sub">A nivel mundial, las mujeres continúan siendo minoría en las carreras de Ciencia, Tecnología, Ingeniería y Matemáticas. Estos datos revelan una realidad que exige acción urgente de gobiernos, instituciones educativas y empresas.</p>
+  <div class="hero-deco">
+    <div class="hero-deco-circle">
+      <div style="text-align:center;position:relative;z-index:1">
+        <div class="hero-big-num">28%</div>
+        <div class="hero-big-label">mujeres en investigación científica global</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-band">
+  <div class="intro-icon">🔬</div>
+  <div class="intro-text"><strong>¿Por qué importa?</strong> La participación femenina en STEM es esencial para la innovación, el crecimiento económico y la equidad social. Cuando las mujeres están subrepresentadas en estas disciplinas, se pierde la mitad del talento humano disponible para resolver los desafíos más complejos del siglo XXI: cambio climático, salud global, inteligencia artificial y más.</div>
+</div>
+
+<!-- ESTADÍSTICAS -->
+<div class="section">
+  <div class="section-title">Estadísticas clave</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">👩‍🔬</div>
+      <div class="stat-number">28%</div>
+      <div class="stat-desc">de los investigadores a nivel mundial son mujeres, pese a representar más del 50% de la población.</div>
+      <div class="stat-source">UNESCO, Instituto de Estadística, 2023</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🎓</div>
+      <div class="stat-number">35%</div>
+      <div class="stat-desc">de los estudiantes universitarios en carreras STEM son mujeres en América Latina y el Caribe.</div>
+      <div class="stat-source">OIT / UNESCO, 2023</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">💻</div>
+      <div class="stat-number">22%</div>
+      <div class="stat-desc">de la fuerza laboral en inteligencia artificial está compuesta por mujeres a escala global.</div>
+      <div class="stat-source">Foro Económico Mundial, 2023</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">💰</div>
+      <div class="stat-number">16%</div>
+      <div class="stat-desc">menos salario reciben las mujeres frente a los hombres en ocupaciones STEM, con igual preparación académica.</div>
+      <div class="stat-source">OCDE, 2022</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🏭</div>
+      <div class="stat-number">15%</div>
+      <div class="stat-desc">de los ingenieros en activo son mujeres en México, según el padrón del Colegio de Ingenieros.</div>
+      <div class="stat-source">INEGI / Colegio de Ingenieros de México, 2022</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📈</div>
+      <div class="stat-number">+12%</div>
+      <div class="stat-desc">de incremento en productividad empresarial se asocia a equipos con mayor diversidad de género en posiciones técnicas.</div>
+      <div class="stat-source">McKinsey &amp; Company, 2023</div>
+    </div>
+  </div>
+</div>
+
+<!-- GRÁFICAS -->
+<div class="chart-section">
+  <!-- Barras -->
+  <div class="chart-card">
+    <div class="chart-title">Mujeres por disciplina STEM (% del total de graduados)</div>
+    <div class="bar-row"><div class="bar-label">Ciencias de la Salud</div><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><div class="bar-pct">68%</div></div>
+    <div class="bar-row"><div class="bar-label">Ciencias Naturales</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="bar-pct">50%</div></div>
+    <div class="bar-row"><div class="bar-label">Matemáticas y Est.</div><div class="bar-track"><div class="bar-fill t" style="width:42%"></div></div><div class="bar-pct">42%</div></div>
+    <div class="bar-row"><div class="bar-label">Tecnologías de Info.</div><div class="bar-track"><div class="bar-fill t" style="width:30%"></div></div><div class="bar-pct">30%</div></div>
+    <div class="bar-row"><div class="bar-label">Ingeniería</div><div class="bar-track"><div class="bar-fill l" style="width:22%"></div></div><div class="bar-pct">22%</div></div>
+    <div class="bar-row"><div class="bar-label">Inteligencia Artificial</div><div class="bar-track"><div class="bar-fill l" style="width:18%"></div></div><div class="bar-pct">18%</div></div>
+    <div style="font-size:10px;color:#bbb;margin-top:12px">Fuente: UNESCO / WEF 2023</div>
+  </div>
+  <!-- Donut -->
+  <div class="chart-card">
+    <div class="chart-title">Distribución por género en investigación científica global</div>
+    <div class="donut-wrap">
+      <svg width="155" height="155" viewBox="0 0 155 155">
+        <circle cx="77.5" cy="77.5" r="52" fill="none" stroke="#F3E5F5" stroke-width="21"/>
+        <circle cx="77.5" cy="77.5" r="52" fill="none" stroke="#1A0A14" stroke-width="21"
+                stroke-dasharray="235.6 91.7" transform="rotate(-90 77.5 77.5)"/>
+        <circle cx="77.5" cy="77.5" r="52" fill="none" stroke="#C2185B" stroke-width="21"
+                stroke-dasharray="91.7 235.6" transform="rotate(-90 77.5 77.5)"/>
+        <text x="77.5" y="72" text-anchor="middle" font-family="Playfair Display,serif" font-size="21" font-weight="900" fill="#C2185B">28%</text>
+        <text x="77.5" y="90" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10.5" fill="#5C2D4A">mujeres</text>
+      </svg>
+      <div class="donut-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#C2185B"></div><div><strong style="color:#C2185B">28%</strong> Investigadoras mujeres</div></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#1A0A14"></div><div><strong>72%</strong> Investigadores hombres</div></div>
+        <div style="font-size:10px;color:#bbb;margin-top:10px;font-style:italic;line-height:1.5">Esta proporción apenas ha variado desde 2015, evidenciando la lenta evolución del sector.</div>
+        <div style="font-size:10px;color:#bbb;margin-top:4px">Fuente: UNESCO 2023</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HITOS -->
+<div class="timeline">
+  <div class="section-title">Hitos de avance — y lo que falta</div>
+  <div class="tl-list">
+    <div class="tl-item"><div class="tl-dot">📜</div><div class="tl-year">2015</div><div class="tl-desc">ONU adopta los ODS: meta 5 exige igualdad de género en educación y ciencia</div></div>
+    <div class="tl-item"><div class="tl-dot">🌐</div><div class="tl-year">2018</div><div class="tl-desc">Se declara el 11 de febrero Día Internacional de la Mujer en la Ciencia</div></div>
+    <div class="tl-item"><div class="tl-dot">📊</div><div class="tl-year">2022</div><div class="tl-desc">Primer informe OCDE documenta brecha salarial STEM del 16% pese a igual formación</div></div>
+    <div class="tl-item"><div class="tl-dot">🎯</div><div class="tl-year">2030</div><div class="tl-desc">Meta ODS: lograr paridad de género en STEM. Avance actual: insuficiente</div></div>
+  </div>
+</div>
+
+<!-- MENSAJE -->
+<div style="padding:40px 60px 0">
+  <div class="section-title">¿Qué revelan los datos?</div>
+</div>
+<div class="message-band">
+  <div class="msg-item">
+    <div class="msg-icon">🔍</div>
+    <div class="msg-heading">Lo que dicen los datos</div>
+    <div class="msg-body">Las brechas no son accidentales: son el resultado de estereotipos de género, falta de modelos femeninos a seguir, sesgos en contratación y culturas organizacionales que no retienen talento diverso.</div>
+  </div>
+  <div class="msg-item">
+    <div class="msg-icon">🌍</div>
+    <div class="msg-heading">Por qué importa a la sociedad</div>
+    <div class="msg-body">El Banco Mundial estima que la inequidad de género en el mercado laboral cuesta al mundo hasta <strong style="color:#F48FB1">$160 billones de dólares</strong> en capital humano perdido. La diversidad en STEM acelera la innovación y mejora los resultados.</div>
+  </div>
+  <div class="msg-item">
+    <div class="msg-icon">🚀</div>
+    <div class="msg-heading">Acciones urgentes</div>
+    <div class="msg-body">
+      <strong style="color:#F48FB1">·</strong> Mentorías y becas STEM para niñas<br>
+      <strong style="color:#F48FB1">·</strong> Auditorías salariales en empresas tech<br>
+      <strong style="color:#F48FB1">·</strong> Políticas de conciliación laboral-familiar<br>
+      <strong style="color:#F48FB1">·</strong> Visibilizar referentes femeninos en ciencia
+    </div>
+  </div>
+</div>
+
+<!-- FUENTES -->
+<div style="padding:30px 60px 0">
+  <div class="sources">
+    <div class="sources-title">Fuentes de información</div>
+    <ul class="sources-list">
+      <li>UNESCO Instituto de Estadística. (2023). <em>Women in Science Fact Sheet.</em> https://uis.unesco.org</li>
+      <li>Organización Internacional del Trabajo (OIT). (2023). <em>World Employment and Social Outlook.</em> https://www.ilo.org</li>
+      <li>OCDE. (2022). <em>Education at a Glance 2022: OECD Indicators.</em> https://www.oecd.org/education/education-at-a-glance</li>
+      <li>Foro Económico Mundial. (2023). <em>Global Gender Gap Report 2023.</em> https://www.weforum.org</li>
+      <li>INEGI. (2022). <em>Encuesta Nacional de Ocupación y Empleo (ENOE).</em> https://www.inegi.org.mx</li>
+      <li>McKinsey &amp; Company. (2023). <em>Diversity Wins: How Inclusion Matters.</em> https://www.mckinsey.com</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">Mujeres en STEM — Infografía 2026</div>
+  <div class="footer-note">Elaboración propia · Fuentes académicas e institucionales verificadas</div>
+</div>
+
+</body>
+</html>
